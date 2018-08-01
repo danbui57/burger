@@ -10,6 +10,8 @@ USE burgers_db;
 CREATE TABLE burgers (
 id int NOT NULL AUTO_INCREMENT,
 burger_name varchar(40) NOT NULL,
-devour TINYINT(1) NOT NULL,
+devour BOOLEAN DEFAULT true,
 PRIMARY KEY (id)
 );
+
+
