@@ -8,9 +8,10 @@
 CREATE DATABASE burgers_db;
 USE burgers_db;
 CREATE TABLE burgers (
-id int NOT NULL AUTO_INCREMENT,
+id INT AUTO_INCREMENT NOT NULL,
 burger_name varchar(40) NOT NULL,
 devour BOOLEAN DEFAULT true,
+createdAt TIMESTAMP NOT NULL,
 PRIMARY KEY (id)
 );
 
