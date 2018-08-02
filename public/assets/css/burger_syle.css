@@ -2,6 +2,7 @@ li {
     padding: 9px;
     margin: 5px;
     background: blue;
+    width:100px
   }
   
   .label {
