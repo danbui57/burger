@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var db = require("./models")
 
 var PORT = process.env.PORT || 8000;
 
@@ -9,10 +10,7 @@ var app = express();
 app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// parse application/json
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -28,5 +26,8 @@ app.use(routes);
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+  db.sequelize.sync()
+  .then(function() {  
+    console.log("Server listening on: http://localhost:" + PORT);
+})
 });

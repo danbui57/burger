@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) => {
-  const Burger = sequelize.define("Burger", {
+module.exports = function(sequelize, DataTypes) {
+  var Burger = sequelize.define("Burger", {
     burger_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     classMethods: {
-      associate: (models) => {
+      associate: function(models) {
         Burger.hasOne(models.Customer);
       }
     }
